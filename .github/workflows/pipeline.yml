@@ -16,7 +16,7 @@ jobs:
       - name: Install dependencies 
         run: npm install  
 
-      - name: Check style
+      #- name: Check style
         #run: npm run eslint
 
       - name: e2e tests
