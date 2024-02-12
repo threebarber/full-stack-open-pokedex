@@ -1,7 +1,3 @@
-const { defineConfig } = require('cypress')
-
-Cypress.config('defaultCommandTimeout', 1000000);
-
 
 describe('Pokedex', function() {
   it('front page can be opened', function() {
