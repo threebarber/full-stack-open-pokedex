@@ -1,4 +1,4 @@
-name: pipeline
+name: delay
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  simple_deployment_pipeline:
+  simple_deployment_pipeline_DELAYED:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v4
@@ -19,9 +19,55 @@ jobs:
       #- name: Check style
         #run: npm run eslint
 
+      - name: Start server
+        run: npm run start-prod
+        background: true
+      
+      - name: Wait for server to start
+        run: sleep 60 # Adjust the delay as needed
+          
       - name: e2e tests
         uses: cypress-io/github-action@v5
         with:
           command: npm run test:e2e
-          start: npm run start-prod
           wait-on: http://localhost:5000
+
+
+
+
+
+
+
+
+
+
+
+
+#name: pipeline
+
+#on:
+#  push:
+#    branches:
+#      - main
+
+#jobs:
+#  simple_deployment_pipeline:
+#    runs-on: ubuntu-20.04
+#    steps:
+#      - uses: actions/checkout@v4
+#      - uses: actions/setup-node@v4
+#        with:
+#          node-version: '20'
+#      - name: Install dependencies 
+#        run: npm install  
+
+      #- name: Check style
+        #run: npm run eslint
+
+#      - name: e2e tests
+#        uses: cypress-io/github-action@v5
+#        with:
+#          command: npm run test:e2e
+#         start: npm run start-prod
+#          wait-on: http://localhost:5000
+
