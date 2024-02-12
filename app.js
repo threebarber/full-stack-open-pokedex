@@ -11,6 +11,12 @@ const PORT = process.env.PORT || 5000;
 // Serve static files from the 'dist' directory
 app.use(express.static(staticDir));
 
+
+app.get("/", (req, res) => {
+  res.sendFile(path.join(staticDir, "index.html"));
+});
+
+
 // Start the server
 app.listen(PORT, () => {
   console.log(`Server started on port ${PORT}`);
