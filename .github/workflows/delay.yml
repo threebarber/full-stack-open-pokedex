@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  simple_deployment_pipeline:
+  simple_deployment_pipeline_DELAYED:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v4
