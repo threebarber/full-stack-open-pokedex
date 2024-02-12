@@ -13,7 +13,8 @@ const PORT = process.env.PORT || 5000;
 
 
 app.get("/", (req, res) => {
-  res.json("pokemon")
+  res.setHeader('Content-type','text/html')
+  res.send("ivysaur")
 });
 
 
