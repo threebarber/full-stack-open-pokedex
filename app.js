@@ -1,11 +1,22 @@
 const express = require("express");
+const path = require("path");
 const app = express();
 
-// get the port from env variable
-const PORT = 5000;
+// Define the directory where your static files are located
+const staticDir = path.join(__dirname, "dist");
 
-app.use(express.static("dist"));
+// Define the port to listen on
+const PORT = process.env.PORT || 5000;
 
+// Serve static files from the 'dist' directory
+app.use(express.static(staticDir));
+
+// Serve the index.html file for any other route
+app.get("*", (req, res) => {
+  res.sendFile(path.join(staticDir, "index.html"));
+});
+
+// Start the server
 app.listen(PORT, () => {
-  console.log(`server started on port ${PORT}`);
+  console.log(`Server started on port ${PORT}`);
 });
