@@ -20,8 +20,8 @@ jobs:
         #run: npm run eslint
 
       - name: Start server
-        run: npm run start-prod
-        background: true
+        run: npm run start-prod &
+        # Run the server in the background using "&" to allow subsequent steps to execute
       
       - name: Wait for server to start
         run: sleep 60 # Adjust the delay as needed
@@ -31,6 +31,8 @@ jobs:
         with:
           command: npm run test:e2e
           wait-on: http://localhost:5000
+
+
 #name: pipeline
 
 #on:
