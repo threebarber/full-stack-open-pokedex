@@ -31,18 +31,6 @@ jobs:
         with:
           command: npm run test:e2e
           wait-on: http://localhost:5000
-
-
-
-
-
-
-
-
-
-
-
-
 #name: pipeline
 
 #on:
