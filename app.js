@@ -18,7 +18,7 @@ app.get("/", (req, res) => {
 });
 
 app.get('/version', (req, res) => {
-  res.send('4') // change this string to ensure a new version deployed
+  res.send('5') // change this string to ensure a new version deployed
 })
 
 app.get('/health', (req, res) => {
@@ -27,6 +27,6 @@ app.get('/health', (req, res) => {
 
 
 // Start the server
-app.listen(PORT + 1, () => {
+app.listen(PORT, () => {
   console.log(`Server started on port ${PORT}`);
 });
