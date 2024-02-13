@@ -1,13 +1,10 @@
 name: Fly Deploy
-#on:
-  #push:
-    #branches:
-      #- main    # change to main if needed
 on:
   pull_request:
     branches: [main]
     types: [opened,synchronize]
 jobs:
+if: ${{ github.event_name == 'push' }}
   deploy:
     name: Deploy app
     runs-on: ubuntu-latest
