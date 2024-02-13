@@ -17,6 +17,10 @@ app.get("/", (req, res) => {
   res.send("ivysaur")
 });
 
+app.get('/version', (req, res) => {
+  res.send('2') // change this string to ensure a new version deployed
+})
+
 
 // Start the server
 app.listen(PORT, () => {
