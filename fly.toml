@@ -1,3 +1,5 @@
+app = "jb-poke-deploy"
+
 [env]
   PORT = "3000" # add this where PORT matches the internal_port below
 
