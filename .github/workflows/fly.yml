@@ -7,7 +7,7 @@ on:
 jobs:
   deploy:
     name: Deploy app
-    if: ${{ github.event_name == 'push' }}
+    if: ${{ github.event.pull_request.merged }}
     runs-on: ubuntu-latest
     concurrency: deploy-group    # optional: ensure only one action runs at a time
     steps:
